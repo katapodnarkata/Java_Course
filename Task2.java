@@ -2,32 +2,29 @@ import java.util.Scanner;
 
 public class Task2 {
     public static void main(String args[]){
-		System.out.println("Enter username ");
 		Scanner scum = new Scanner(System.in);
+
         String username = "Admin";
         String password = "P@ssword";
-        
+
+        System.out.println("Enter username ");
         String name = scum.nextLine();
-       if (name.equals(username))
+
+          if (!name.equals(username))
+        {
+          System.out.println("No user with this name");
+        }
+        else
         {
           System.out.println("Enter password:");
-        }
-        else
-         {
-          System.out.println("No user with this name");
-           scum.close();
-          return; 
-         }
-
-        String pass = scum.nextLine();
-       if (pass.equals(password))
-        {
-            System.out.println("Hi, " +username+ ". Welcom to the club body" );
-        }
-        else
-        {
-            System.out.println("You have entered a wrong password");
-        }
+          String pass = scum.nextLine();
+         while (!pass.equals(password)) {
+          System.out.println("Incorrect password");
+          System.out.println("Enter password:");  
+        pass = scum.nextLine(); 
         scum.close();
+        }
+        System.out.println("Hi, "+username+"! Welcome to the club buddy");
+        }
     }
 }
